@@ -12,14 +12,14 @@ import static org.junit.Assert.assertEquals;
 
 
 @RunWith(Parameterized.class)
-public class AnimalTestForGetFood
+public class AnimalForGetFoodTest
 {
     private final String animalType;
     private final List<String> animalFood;
 
     Animal animal;
 
-    public AnimalTestForGetFood(String animalType, List<String> animalFood)
+    public AnimalForGetFoodTest(String animalType, List<String> animalFood)
     {
         this.animalType = animalType;
         this.animalFood = animalFood;

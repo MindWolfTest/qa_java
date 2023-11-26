@@ -28,17 +28,18 @@ public class LionParamTest extends Exception
 
 
     @Parameterized.Parameters()
-    public static Object[][] data() {
-        return new Object[][] {
-                { MALE_SEX_LION, LION_DEFAULT_KITTEN },
-                { FEMALE_SEX_LION, LION_TEST_KITTEN }
+    public static Object[][] data()
+    {
+        return new Object[][]{
+                {MALE_SEX_LION, LION_DEFAULT_KITTEN},
+                {FEMALE_SEX_LION, LION_TEST_KITTEN}
         };
     }
 
 
-
     @Before
-    public void setUp() {
+    public void setUp()
+    {
         MockitoAnnotations.openMocks(this);
     }
 
@@ -53,7 +54,6 @@ public class LionParamTest extends Exception
     }
 
 
-
     @Test
     public void getFoodLionParamTest() throws Exception
     {
@@ -61,32 +61,35 @@ public class LionParamTest extends Exception
 
         Mockito.when(feline.getFood(PREDATOR_LION)).thenReturn(PREDATOR_LION_FOOD_LIST);
         List<String> actualResult = lion.getFood();
-        assertEquals(PREDATOR_LION_FOOD_LIST,actualResult);
+        assertEquals(PREDATOR_LION_FOOD_LIST, actualResult);
     }
 
     @Test
-    public void doesHaveManeLionParamTest() throws Exception
+    public void doesHaveManeTrueLionParamTest() throws Exception
     {
         lion = new Lion(sex, feline);
 
         boolean hasMane = lion.doesHaveMane();
-        if (hasMane)
-        {
-            assertEquals(TRUE_IF_MALE, hasMane);
-        }
-        else if (!hasMane)
-        {
-            assertEquals(FALSE_IF_FEMALE, hasMane);
-        }
-
+        assertEquals(TRUE_IF_MALE, hasMane);
     }
+
+    @Test
+    public void doesHaveManeFalseLionParamTest() throws Exception
+    {
+        lion = new Lion(sex, feline);
+
+        boolean hasMane = lion.doesHaveMane();
+        assertEquals(FALSE_IF_FEMALE, hasMane);
+    }
+
     @Test
     public void lionExceptionParamTest()
     {
 
-        Exception exception = assertThrows(Exception.class, () -> {
-            lion = new Lion(WRONG_SEX_LION,feline);
+        Exception exception = assertThrows(Exception.class, () ->
+        {
+            lion = new Lion(WRONG_SEX_LION, feline);
         });
-        assertEquals(UNKNOWN_SEX_LION ,exception.getMessage());
+        assertEquals(UNKNOWN_SEX_LION, exception.getMessage());
     }
 }

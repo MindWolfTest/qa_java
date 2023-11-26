@@ -24,10 +24,11 @@ public class AnimalTest
     @Test
     public void getAnimalFoodUnknownAnimalTest()
     {
-        Exception exception = assertThrows(Exception.class, () -> {
+        Exception exception = assertThrows(Exception.class, () ->
+        {
             animal.getFood(UNKNOWN_ANIMAL);
         });
-        assertEquals(UNKNOWN_ANIMAL_FOOD ,exception.getMessage());
+        assertEquals(UNKNOWN_ANIMAL_FOOD, exception.getMessage());
     }
 
     @Test

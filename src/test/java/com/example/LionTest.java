@@ -33,10 +33,11 @@ public class LionTest extends Exception
     public void lionExceptionTest()
     {
 
-        Exception exception = assertThrows(Exception.class, () -> {
-            lion = new Lion(WRONG_SEX_LION,feline);
+        Exception exception = assertThrows(Exception.class, () ->
+        {
+            lion = new Lion(WRONG_SEX_LION, feline);
         });
-        assertEquals(UNKNOWN_SEX_LION ,exception.getMessage());
+        assertEquals(UNKNOWN_SEX_LION, exception.getMessage());
     }
 
 
@@ -47,7 +48,7 @@ public class LionTest extends Exception
 
         Mockito.when(feline.getFood(PREDATOR_LION)).thenReturn(PREDATOR_LION_FOOD_LIST);
         List<String> actualResult = lion.getFood();
-        assertEquals(PREDATOR_LION_FOOD_LIST,actualResult);
+        assertEquals(PREDATOR_LION_FOOD_LIST, actualResult);
     }
 
     @Test
@@ -56,7 +57,7 @@ public class LionTest extends Exception
         lion = new Lion(MALE_SEX_LION, feline);
 
         boolean hasMane = lion.doesHaveMane();
-        assertEquals(TRUE_IF_MALE,hasMane);
+        assertEquals(TRUE_IF_MALE, hasMane);
 
     }
 }

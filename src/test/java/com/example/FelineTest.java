@@ -20,20 +20,18 @@ public class FelineTest
     @Spy
     Feline feline;
 
-
-
     @Test
     public void eatMeatFelineTest() throws Exception
     {
         Mockito.when(feline.getFood(FELINE_PREDATOR)).thenReturn(PREDATOR_FELINE_FOOD_LIST);
         List<String> actualResult = feline.eatMeat();
-        assertEquals(PREDATOR_FELINE_FOOD_LIST,actualResult);
+        assertEquals(PREDATOR_FELINE_FOOD_LIST, actualResult);
     }
 
     @Test
-    public void getFamilyTest ()
+    public void getFamilyTest()
     {
-        String actualResult =  feline.getFamily();
+        String actualResult = feline.getFamily();
         assertEquals(FELINE_FAMILY, actualResult);
     }
 

@@ -29,7 +29,6 @@ public class CatTest
     public void getCatSoundTest()
     {
         String actual = cat.getSound();
-
         assertEquals(CAT_SOUND, actual);
     }
 
