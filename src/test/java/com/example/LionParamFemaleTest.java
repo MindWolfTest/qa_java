@@ -15,7 +15,7 @@ import static org.junit.Assert.*;
 
 
 @RunWith(Parameterized.class)
-public class LionParamTest extends Exception
+public class LionParamFemaleTest extends Exception
 {
     private Lion lion;
     @Mock
@@ -31,7 +31,7 @@ public class LionParamTest extends Exception
     public static Object[][] data()
     {
         return new Object[][]{
-                {MALE_SEX_LION, LION_DEFAULT_KITTEN},
+                {FEMALE_SEX_LION, LION_DEFAULT_KITTEN},
                 {FEMALE_SEX_LION, LION_TEST_KITTEN}
         };
     }
@@ -65,16 +65,7 @@ public class LionParamTest extends Exception
     }
 
     @Test
-    public void doesHaveManeTrueLionParamTest() throws Exception
-    {
-        lion = new Lion(sex, feline);
-
-        boolean hasMane = lion.doesHaveMane();
-        assertEquals(TRUE_IF_MALE, hasMane);
-    }
-
-    @Test
-    public void doesHaveManeFalseLionParamTest() throws Exception
+    public void doesHaveManeFemaleLionParamTest() throws Exception
     {
         lion = new Lion(sex, feline);
 
